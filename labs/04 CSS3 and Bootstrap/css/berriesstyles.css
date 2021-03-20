@@ -1,0 +1,49 @@
+.box {
+    border: solid 1px black;
+    margin: 0;
+    background-color: #2B81AF;
+    height: 100px;
+    width: 200px;
+}
+
+.box2 {
+    border: solid 1px black;
+    margin: 0;
+    background-color: #8d7d77;
+    height: 100px;
+    width: 200px;
+}
+
+.box3 {
+    border: solid 1px black;
+    margin: 0;
+    background-color: darkorchid;
+    height: 100px;
+    width: 200px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.content {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+}
+
+.large {
+    font-weight: bold;
+    font-size: 100px;
+}
+
+figure {
+    text-align: center;
+    font-weight: bold;
+    font-size: smaller;
+}

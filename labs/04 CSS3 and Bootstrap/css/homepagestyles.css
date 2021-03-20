@@ -1,0 +1,15 @@
+
+body{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    background-color: beige;
+}
+
+figure {
+    float: right;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}

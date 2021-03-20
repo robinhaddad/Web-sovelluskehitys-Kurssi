@@ -1,0 +1,8 @@
+.boxes{
+    display: flex;                  /* 1. */
+}
+
+.box {
+    border: solid 1px black;
+    margin: 0
+}
