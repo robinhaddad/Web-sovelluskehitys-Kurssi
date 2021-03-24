@@ -18,8 +18,37 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+function myFunction(){
+
+  var employee = {
+    name: { first: "Colin",
+      second: "Stephen" },
+    title: "Assistant Lecturer"
+  }
+
+  var myString = JSON.stringify(employee);
+
+  document.getElementById("json").textContent = myString;
+
+  var myObject = JSON.parse(myString);
+
+  document.getElementById("json2").textContent = myObject;
+
+  var employeeName = myObject.name;
+
+  var nameString = JSON.stringify(employeeName);
+
+  document.getElementById("json2").textContent = nameString;
+
+}
+
+
+
+
   </script>
 </head>
-<body>
+<body onload="myFunction()">
+<div><pre id="json"></pre></div>
+<div><pre id="json2"></pre></div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 // This script manages a to-do list.
 
 // Need a global variable:
-var tasks = []; 
+let tasks = [];
 
 // Function called when the form is submitted.
 // Function adds a task to the global array.

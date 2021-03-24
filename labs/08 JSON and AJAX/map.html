@@ -28,9 +28,27 @@
 			alert("Looks like you have an old browser!");
 		}
 	}
+
+	let num = 0;
+
+    function myFunction() {
+        var list = document.createElement('ul');
+
+        for(var i=0; i<10; i++){
+
+            var item = document.createElement('li');
+
+            item.appendChild(document.createTextNode("i am the " + i + ". item on the list."));
+
+            list.appendChild(item);
+        }
+        document.body.appendChild(list);
+        num++;
+	}
+
   </script>
 </head>
-<body>
+<body onload="myFunction()">
 	<img id="map" src="data/map.jpg">
 	<p id="coords">Move mouse over map to find coordinates...</p>
 	<div id="mydiv" style="border:1px solid red">I am a DIV! Click me.</div>
