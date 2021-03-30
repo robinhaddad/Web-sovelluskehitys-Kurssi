@@ -1,29 +1,55 @@
+let count = 0;
 var notes = [];
 
 /*
  * displays the 'add' screen if this has been bookmarked by user
  */
-if (window.location.hash == '#add' || notes.length === 0) {
+/*if (window.location.hash == '#add' || notes.length === 0) {
 	document.getElementById('editPage').style.display = 'none';
 } else {
 	document.getElementById('addPage').style.display = 'none';
-}
+}*/
+
+document.getElementById('editPage').style.display = 'none';
+document.getElementById('addPage').style.display = 'none';
 
 document.querySelector('#addPage button').onclick = function() {
+
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+
+	let noteObj = {title: title, note: note};
+
+	notes.push(noteObj);
+
+	document.querySelector('#addPage input').value = '';
+	document.querySelector('#addPage textarea').value = '';
 };
 
 /*
  * handles navigation between the add and edit 'screens'
- */ 
+ */
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('editPage').style.display = 'none';
+	var z = document.getElementById("addPage");
+	if (z.style.display === "none") {
+		z.style.display = "block";
+	} else {
+		z.style.display = "none";
+	}
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('addPage').style.display = 'none';
+	var x = document.getElementById("editPage");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
 };
 
 
@@ -42,10 +68,11 @@ function display(element) {
 	console.log('display');
 	console.log(element.parentNode.parentNode.id);
 	var details = document.getElementById('details');
-	var id = element.parentNode.parentNode.id;
+	let id = element.parentNode.parentNode.id;
 	document.querySelector('#editPage input').value = notes[id].title;
 	document.querySelector('#editPage textarea').value = notes[id].note;
-	document.querySelector('#editPage p').innerHTML = id;
+	document.getElementById("numero").innerHTML = id;
+	//document.querySelector('#editPage numero').innerHTML = id;
 }
 
 function rem(element) {

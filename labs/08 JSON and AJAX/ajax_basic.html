@@ -12,11 +12,13 @@
 
 
   <script type="text/javascript">
-  (function() {
+  /*(function() {
     var httpRequest;
-    var testUrl = 'data/story.json';
+    //var testUrl = 'data/story.json';
     // Use Github Gist when no web server is available
-    // var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
+    //var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
+      var testUrl = document.getElementById("myText").value;
+      console.log(testUrl);
     document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
 
     function makeRequest(url) {
@@ -58,8 +60,65 @@
         }
       }
     }
-  })();
-  </script>
+  })();*/
 
+function myFunction(){
+      (function functionA() {
+          var httpRequest;
+          //var testUrl = 'data/story.json';
+          // Use Github Gist when no web server is available
+          //var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
+          //var testUrl = document.getElementById("myText");
+          var testUrl = 'data/story.json';
+
+          document.getElementById("myBtn").onclick = function() { makeRequest(document.getElementById("myText").value); };
+
+          document.getElementById("ajaxButton").onclick = function() { makeRequest(document.getElementById(testUrl)); };
+
+
+          function makeRequest(url) {
+              if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                  httpRequest = new XMLHttpRequest();
+              } else if (window.ActiveXObject) { // IE
+                  try {
+                      httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                  }
+                  catch (e) {
+                      try {
+                          httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                      }
+                      catch (e) {}
+                  }
+              }
+
+              if (!httpRequest) {
+                  alert('Giving up :( Cannot create an XMLHTTP instance');
+                  return false;
+              }
+
+              // set a callback function for when the httpRequest completes
+              httpRequest.onreadystatechange = alertContents;
+
+              // now do the actual AJAX request
+              httpRequest.open('GET', url);
+              httpRequest.send();
+          }
+
+          // the callback
+          // this will be run when the request completes (see above)
+          function alertContents() {
+              if (httpRequest.readyState === 4) {
+                  if (httpRequest.status === 200) {
+                      alert(httpRequest.responseText);
+                  } else {
+                      alert('Site is DOWN!');
+                  }
+              }
+          }
+      })();
+  }
+  </script>
+  <br><br><input type="text" id="myText" value="data/chapter-1.json">
+  <button id="myBtn" onclick="myFunction()">Press this button to make a request</button>
 </body>
 </html>
